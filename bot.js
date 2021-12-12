@@ -52,7 +52,7 @@ function sendDocuments(name, args, msg) {
   if (args == "") {
     // fetchsubject(name);
 
-    fs.readFile("/discord_bot/subjects/" + name + ".txt", (err, data) => {
+    fs.readFile("../subjects/" + name + ".txt", (err, data) => {
       if (err) throw err;
       let out = data.toString();
       for (let i = 0; i < out.length; i++) {
@@ -64,13 +64,13 @@ function sendDocuments(name, args, msg) {
     });
   } else {
     if (args == "syllabus") {
-      fs.readFile("/discord_bot/subjects/" + name + ".txt", (err, data) => {
+      fs.readFile("../subjects/" + name + ".txt", (err, data) => {
         if (err) throw err;
         let out = data.toString();
         msg.reply(out.substring(out.indexOf("["), out.indexOf("]")));
       });
     } else if (args == "material") {
-      fs.readFile("/discord_bot/subjects/" + name + ".txt", (err, data) => {
+      fs.readFile("../subjects/" + name + ".txt", (err, data) => {
         if (err) throw err;
         let out = data.toString();
         msg.reply(out.substring(out.indexOf("{"), out.indexOf("}")));
