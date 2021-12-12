@@ -18,8 +18,7 @@ client.on("message", async (msg) => {
   // if msg starts with prefix, store commans in arry
   if (msg.content.startsWith(prefix)) {
     const [commandName, ...args] = msg.content.trim().substring().split(/\s+/);
-
-    switch (cmdName) {
+    switch (commandName) {
       case "$coa":
         sendDocuments("coa", args, msg);
         break;
