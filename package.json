@@ -5,6 +5,6 @@
     "googleapis": "^92.0.0"
   },
   "scripts": {
-    "start": "npm install nodemon && nodemon bot.js"
+    "start": "node bot.js"
   }
 }
