@@ -52,19 +52,19 @@ function sendDocuments(name, args, msg) {
   if (args == "") {
     // fetchsubject(name);
 
-    fs.readFile("/subjects/" + name + ".txt", (err, data) => {
+    fs.readFile("/discord_bot/subjects/" + name + ".txt", (err, data) => {
       if (err) throw err;
       msg.reply(data.toString());
     });
   } else {
     if (args == "syllabus") {
-      fs.readFile("/subjects/" + name + ".txt", (err, data) => {
+      fs.readFile("/discord_bot/subjects/" + name + ".txt", (err, data) => {
         if (err) throw err;
         let out = data.toString();
         msg.reply(out.substring(out.indexOf("["), out.indexOf("]")));
       });
     } else if (args == "material") {
-      fs.readFile("/subjects/" + name + ".txt", (err, data) => {
+      fs.readFile("/discord_bot/subjects/" + name + ".txt", (err, data) => {
         if (err) throw err;
         let out = data.toString();
         msg.reply(out.substring(out.indexOf("{"), out.indexOf("}")));
