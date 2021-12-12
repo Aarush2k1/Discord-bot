@@ -1,6 +1,10 @@
 const Discord = require("discord.js");
 require("dotenv").config();
 const fs = require("fs");
+const path = require("path");
+
+const prefix = "$";
+const pathName = path.join(__dirname + "/subjects/");
 
 const client = new Discord.Client({
   intents: [Discord.Intents.FLAGS.GUILDS, Discord.Intents.FLAGS.GUILD_MESSAGES],
@@ -8,10 +12,9 @@ const client = new Discord.Client({
 
 client.on("ready", () => {
   let name = client.user.tag;
+  console.log(pathName + name + ".txt");
   console.log(name.substring(0, name.indexOf("#")) + " is ready to go!");
 });
-
-const prefix = "$";
 
 client.on("message", async (msg) => {
   // if author bot, don't send any message
@@ -51,8 +54,7 @@ client.on("message", async (msg) => {
 function sendDocuments(name, args, msg) {
   if (args == "") {
     // fetchsubject(name);
-
-    fs.readFile("../subjects/" + name + ".txt", (err, data) => {
+    fs.readFile(pathName + name + ".txt", (err, data) => {
       if (err) throw err;
       let out = data.toString();
       for (let i = 0; i < out.length; i++) {
@@ -64,13 +66,13 @@ function sendDocuments(name, args, msg) {
     });
   } else {
     if (args == "syllabus") {
-      fs.readFile("../subjects/" + name + ".txt", (err, data) => {
+      fs.readFile(pathName + name + ".txt", (err, data) => {
         if (err) throw err;
         let out = data.toString();
         msg.reply(out.substring(out.indexOf("["), out.indexOf("]")));
       });
     } else if (args == "material") {
-      fs.readFile("../subjects/" + name + ".txt", (err, data) => {
+      fs.readFile(pathName + name + ".txt", (err, data) => {
         if (err) throw err;
         let out = data.toString();
         msg.reply(out.substring(out.indexOf("{"), out.indexOf("}")));
