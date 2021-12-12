@@ -10,7 +10,9 @@
   "name": "discord_bot",
   "version": "1.0.0",
   "main": "bot.js",
-  "devDependencies": {},
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Aarush2k1/discord_bot.git"
