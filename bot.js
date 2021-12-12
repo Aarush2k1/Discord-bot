@@ -54,7 +54,13 @@ function sendDocuments(name, args, msg) {
 
     fs.readFile("/discord_bot/subjects/" + name + ".txt", (err, data) => {
       if (err) throw err;
-      msg.reply(data.toString());
+      let out = data.toString();
+      for (let i = 0; i < out.length; i++) {
+        if (out[i] == "{" || out[i] == "}" || out[i] == "[" || out[i] == "]") {
+          out[i] = "";
+        }
+      }
+      msg.reply(out);
     });
   } else {
     if (args == "syllabus") {
