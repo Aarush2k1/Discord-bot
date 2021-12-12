@@ -1,0 +1,12 @@
+Bot Commands for subjects are:
+$coa - Comp. Org. & Arch.
+$ml - Machine Learning
+$se - Software Engineering 
+$np - Network Programming
+$ps - Prob. & Stats.
+
+For Syllabus only:
+$coa syllabus
+
+For Study Materials only:
+$coa material

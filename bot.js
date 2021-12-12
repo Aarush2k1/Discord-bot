@@ -7,7 +7,8 @@ const client = new Discord.Client({
 });
 
 client.on("ready", () => {
-  console.log(`Logged in as ${client.user.tag}!`);
+  let name = client.user.tag;
+  console.log(name.substring(0, name.indexOf("#")) + " is ready to go!");
 });
 
 const prefix = "$";
@@ -38,17 +39,12 @@ client.on("message", async (msg) => {
       case "$ele":
         sendDocuments("ele", args, msg);
         break;
+      case "$commands":
+        sendDocuments("default", args, msg);
+        break;
       default:
-        fs.readFile("./subjects/default.txt", (err, data) => {
-          if (err) throw err;
-          msg.reply(data.toString());
-        });
+        sendDocuments("default", args, msg);
     }
-  } else {
-    fs.readFile("./subjects/default.txt", (err, data) => {
-      if (err) throw err;
-      msg.reply(data.toString());
-    });
   }
 });
 
@@ -56,33 +52,22 @@ function sendDocuments(name, args, msg) {
   if (args == "") {
     // fetchsubject(name);
 
-    fs.readFile("./subjects/" + name + ".txt", (err, data) => {
+    fs.readFile("/subjects/" + name + ".txt", (err, data) => {
       if (err) throw err;
-
-      msg.reply(
-        commandName.substring(1, commandName.length) +
-          " resources are:\n" +
-          data.toString()
-      );
+      msg.reply(data.toString());
     });
   } else {
     if (args == "syllabus") {
-      fs.readFile("./subjects/" + name + ".txt", (err, data) => {
+      fs.readFile("/subjects/" + name + ".txt", (err, data) => {
         if (err) throw err;
         let out = data.toString();
-        let start = out.indexOf("[");
-        let end = out.indexOf("]");
-
-        msg.reply(out.substring(start + 1, end));
+        msg.reply(out.substring(out.indexOf("["), out.indexOf("]")));
       });
     } else if (args == "material") {
-      fs.readFile("./subjects/" + name + ".txt", (err, data) => {
+      fs.readFile("/subjects/" + name + ".txt", (err, data) => {
         if (err) throw err;
         let out = data.toString();
-        let start = out.indexOf("{");
-        let end = out.indexOf("}");
-
-        msg.reply(out.substring(start + 1, end));
+        msg.reply(out.substring(out.indexOf("{"), out.indexOf("}")));
       });
     }
   }
