@@ -42,7 +42,7 @@ client.on("message", async (msg) => {
 
 function sendDocuments(name, args, msg) {
   if (args == "") {
-    fetchsubject(name);
+    // fetchsubject(name);
     msg.reply(name + " resources are:");
   } else {
     if (args == "syllabus") {
