@@ -16,7 +16,7 @@ client.on("ready", () => {
   console.log(name.substring(0, name.indexOf("#")) + " is ready to go!");
 });
 
-client.on("message", async (msg) => {
+client.on("messageCreate", async (msg) => {
   // if author bot, don't send any message
   if (msg.author.bot) return;
 
@@ -57,11 +57,7 @@ function sendDocuments(name, args, msg) {
     fs.readFile(pathName + name + ".txt", (err, data) => {
       if (err) throw err;
       let out = data.toString();
-      for (let i = 0; i < out.length; i++) {
-        if (out[i] == "{" || out[i] == "}" || out[i] == "[" || out[i] == "]") {
-          out[i] = "";
-        }
-      }
+      out = out.replace(/\{|}|\[|]/g, "");
       msg.reply(out);
     });
   } else {
@@ -69,13 +65,13 @@ function sendDocuments(name, args, msg) {
       fs.readFile(pathName + name + ".txt", (err, data) => {
         if (err) throw err;
         let out = data.toString();
-        msg.reply(out.substring(out.indexOf("["), out.indexOf("]")));
+        msg.reply(out.substring(out.indexOf("[") + 1, out.indexOf("]")));
       });
     } else if (args == "material") {
       fs.readFile(pathName + name + ".txt", (err, data) => {
         if (err) throw err;
         let out = data.toString();
-        msg.reply(out.substring(out.indexOf("{"), out.indexOf("}")));
+        msg.reply(out.substring(out.indexOf("{") + 1, out.indexOf("}")));
       });
     }
   }
