@@ -1,0 +1,14 @@
+NETWORK PROGRAMMING 
+
+Quiz on - 15/12, 6:00 PM
+
+Syllabus - [OSI Model Introduction, Subnetting, Layer 2 and Layer 3 Routing, LANs and VLANs, Router - VLAN Routing. ( Complete detailed syllabus is Uploaded on lms ) ]
+
+Study Material 👇
+{
+Each and Everything is a available on LMS 
+
+Slides - LMS
+
+Lecture Recordings ( also available on lms ) :- https://drive.google.com/file/d/16qqtNtOCTRJ-xhWdbp4KNsXoN0FQV29-/view?usp=drivesdk
+}

@@ -1,5 +1,6 @@
 const Discord = require("discord.js");
 require("dotenv").config();
+const fs = require("fs");
 
 const client = new Discord.Client({
   intents: [Discord.Intents.FLAGS.GUILDS, Discord.Intents.FLAGS.GUILD_MESSAGES],
@@ -23,7 +24,10 @@ client.on("message", async (msg) => {
         sendDocuments("coa", args, msg);
         break;
       case "$ps":
-        sendDocuments("pands", args, msg);
+        sendDocuments("ps", args, msg);
+        break;
+      case "$np":
+        sendDocuments("np", args, msg);
         break;
       case "$ml":
         sendDocuments("ml", args, msg);
@@ -35,18 +39,51 @@ client.on("message", async (msg) => {
         sendDocuments("ele", args, msg);
         break;
       default:
-        msg.reply("Commands are:\n $coa");
+        fs.readFile("./subjects/default.txt", (err, data) => {
+          if (err) throw err;
+          msg.reply(data.toString());
+        });
     }
+  } else {
+    fs.readFile("./subjects/default.txt", (err, data) => {
+      if (err) throw err;
+      msg.reply(data.toString());
+    });
   }
 });
 
 function sendDocuments(name, args, msg) {
   if (args == "") {
     // fetchsubject(name);
-    msg.reply(name + " resources are:");
+
+    fs.readFile("./subjects/" + name + ".txt", (err, data) => {
+      if (err) throw err;
+
+      msg.reply(
+        commandName.substring(1, commandName.length) +
+          " resources are:\n" +
+          data.toString()
+      );
+    });
   } else {
     if (args == "syllabus") {
-      console.log("syallbus");
+      fs.readFile("./subjects/" + name + ".txt", (err, data) => {
+        if (err) throw err;
+        let out = data.toString();
+        let start = out.indexOf("[");
+        let end = out.indexOf("]");
+
+        msg.reply(out.substring(start + 1, end));
+      });
+    } else if (args == "material") {
+      fs.readFile("./subjects/" + name + ".txt", (err, data) => {
+        if (err) throw err;
+        let out = data.toString();
+        let start = out.indexOf("{");
+        let end = out.indexOf("}");
+
+        msg.reply(out.substring(start + 1, end));
+      });
     }
   }
 }

@@ -1,0 +1,22 @@
+Machine Learning 
+
+Quiz on - 16/12, 4:00 PM
+
+Syllabus - [Non Linear SVM, Decision Tree(ID3,C4.5,CARTS), Clustering, Association Rules Learning, Artificial Neural Network, Genetic Algorithms]
+
+STUDY MATERIAL 👇
+{
+SLIDES - LMS , https://sites.google.com/thapar.edu/uml501/theory
+
+BOOK ( Tom Mitchell ) - 
+
+https://drive.google.com/file/d/15ac9WJGaTdiqZ_fpfNMjzTgjY27iKSUS/view?usp=drivesdk
+
+LECTURE RECODINGS -
+
+1) LMS - https://drive.google.com/folderview?id=1_Kbc8qqz6bK54sO-klS0X7XTUJ9HdQ8R
+
+2) Nidhi Kalra Mam - https://drive.google.com/drive/u/5/folders/1peffffhEXbVlV8dOV3cRoP9hQd74p7Q9
+
+3) Raman Kumar Goyal Sir - https://youtube.com/channel/UC-Fwf53WTVoLLpE0ClydxRw
+}

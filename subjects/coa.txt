@@ -1,0 +1,24 @@
+CAO
+
+Quiz on - 14/12, 11:00 AM
+
+Syllabus - 
+[
+1. Memory Organization: Main Memory, Associative Memory, Cache Memory, Virtual Memory, Paging, Segmentation, MMU
+
+2. Pipelining, Arithmetic Pipelining, Instruction Pipelining, Pipelining Hazards: Data Dependency (RAW, WAR, WAR), Branch dependency, Structural Dependency
+
+3. Direct Memory Access, I/O interface, Asynchronous Data Transfer, Modes of Transfer, Priority Encoder
+]
+Study Material 👇
+{
+All material ( Slides, also below is the combined pdf of slides that are coming in Sessional exam ) - https://drive.google.com/drive/folders/1oTskdLyzFZZpaCh_rb5CXv_fyQHtdsLX?usp=sharing
+
+Lecture Recordings :- 
+
+1) Sonu Lamba Mam - https://drive.google.com/drive/folders/1c_5D-u5Woo43qL-988FLFULmSWbai7rZ?usp=sharing
+
+2) 2nd Year CSA -  https://drive.google.com/drive/folders/1nc8l150rIQozGrCG-DR827a-H5qnrEnc?usp=sharing
+
+3) LMS - https://drive.google.com/folderview?id=1nJnCXv0DaT9hajBshXDj1dWW6zbspXtJ
+}
